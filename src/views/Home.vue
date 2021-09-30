@@ -1,15 +1,23 @@
 <template>
-  <hello-world />
+  <div>
+    <movie-grid />
+  </div>
+
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+  import { mapState } from 'vuex';
+  import MovieGrid from '@/components/MovieGrid'
+
 
   export default {
     name: 'Home',
-
     components: {
-      HelloWorld,
+      MovieGrid,
+    },
+
+    created() {
+      this.$store.dispatch('getMovies');
     },
   }
 </script>
